@@ -43,7 +43,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
     // Unit field with vertical line between unit and quantity
     { 
       label: 'Unit', 
-      value: `${data.unit} | ${data.quantity}` 
+      value: `${data.unit} \u2502 ${data.quantity}` 
     },
   ]
 
@@ -95,7 +95,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           {fields.map((field) => (
             <div
               key={field.label}
-              className="flex items-center gap-3 border-white/15 py-2 last:border-b-0"
+              className="flex items-center gap-3 border-white/15 py-1 last:border-b-0"
             >
               <dt className="w-32 shrink-0 font-sans text-lg font-medium text-[#2bb6ea]">
                 {field.label}
@@ -109,13 +109,13 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         </dl>
 
         {/* Implant image */}
-        <div className="overflow-hidden rounded-2xl bg-black">
+        <div className="overflow-hidden rounded-2xl bg-black h-69">
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"
             width={600}
             height={600}
-            className="h-full w-full object-cover"
+            className="h-full w-full"
           />
         </div>
       </div>
