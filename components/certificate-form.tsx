@@ -49,30 +49,50 @@ export function CertificateForm({
           </div>
         ))}
 
-        {/* Unit + Quantity - same label, 2 small inputs */}
+        {/* 4 Unit inputs in grid */}
         <div className="flex flex-col gap-1.5">
           <label className="font-sans text-sm font-medium text-neutral-300">
-            Unit
+            Units (4 values)
           </label>
-          <div className="flex items-center gap-2">
+          <div className="grid grid-cols-4 gap-2">
             <input
               type="text"
-              value={data.unit}
+              value={data.unit1}
               onChange={(e) =>
-                onChange({ ...data, unit: e.target.value })
+                onChange({ ...data, unit1: e.target.value })
               }
-              className="w-14 rounded-lg border border-white/10 bg-neutral-800 px-2 py-2 font-sans text-sm text-white text-center outline-none transition focus:border-[#00a3e0] focus:ring-2 focus:ring-[#00a3e0]/30"
+              placeholder="Top Left"
+              className="rounded-lg border border-white/10 bg-neutral-800 px-2 py-2 font-sans text-sm text-white text-center outline-none transition focus:border-[#00a3e0] focus:ring-2 focus:ring-[#00a3e0]/30"
             />
-            <span className="text-white/50 text-lg">|</span>
             <input
               type="text"
-              value={data.quantity}
+              value={data.unit2}
               onChange={(e) =>
-                onChange({ ...data, quantity: e.target.value })
+                onChange({ ...data, unit2: e.target.value })
               }
-              className="w-14 rounded-lg border border-white/10 bg-neutral-800 px-2 py-2 font-sans text-sm text-white text-center outline-none transition focus:border-[#00a3e0] focus:ring-2 focus:ring-[#00a3e0]/30"
+              placeholder="Top Right"
+              className="rounded-lg border border-white/10 bg-neutral-800 px-2 py-2 font-sans text-sm text-white text-center outline-none transition focus:border-[#00a3e0] focus:ring-2 focus:ring-[#00a3e0]/30"
+            />
+            <input
+              type="text"
+              value={data.unit3}
+              onChange={(e) =>
+                onChange({ ...data, unit3: e.target.value })
+              }
+              placeholder="Bottom Left"
+              className="rounded-lg border border-white/10 bg-neutral-800 px-2 py-2 font-sans text-sm text-white text-center outline-none transition focus:border-[#00a3e0] focus:ring-2 focus:ring-[#00a3e0]/30"
+            />
+            <input
+              type="text"
+              value={data.unit4}
+              onChange={(e) =>
+                onChange({ ...data, unit4: e.target.value })
+              }
+              placeholder="Bottom Right"
+              className="rounded-lg border border-white/10 bg-neutral-800 px-2 py-2 font-sans text-sm text-white text-center outline-none transition focus:border-[#00a3e0] focus:ring-2 focus:ring-[#00a3e0]/30"
             />
           </div>
+          <p className="text-xs text-neutral-500 mt-1">TL: Top-Left, TR: Top-Right, BL: Bottom-Left, BR: Bottom-Right</p>
         </div>
       </div>
     </form>

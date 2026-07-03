@@ -15,8 +15,10 @@ export type CertificateData = {
   shade: string
   typeOfWork: string
   warranty: string
-  unit: string      // "1" ya "2" etc - display unit
-  quantity: string  // number of units
+  unit1: string
+  unit2: string
+  unit3: string
+  unit4: string
 }
 
 export const defaultCertificateData: CertificateData = {
@@ -27,8 +29,10 @@ export const defaultCertificateData: CertificateData = {
   shade: 'A1',
   typeOfWork: 'Zirconia',
   warranty: '10 Years',
-  unit: '1',
-  quantity: '1',
+  unit1: '1',
+  unit2: '2',
+  unit3: '3',
+  unit4: '4',
 }
 
 export function CertificateCard({ data }: { data: CertificateData }) {
@@ -40,12 +44,19 @@ export function CertificateCard({ data }: { data: CertificateData }) {
     { label: 'Shade', value: data.shade },
     { label: 'Type of work', value: data.typeOfWork },
     { label: 'Warranty', value: data.warranty },
-    // Unit field with vertical line between unit and quantity
-    { 
-      label: 'Unit', 
-      value: `${data.unit} \u2502 ${data.quantity}` 
-    },
   ]
+
+  // Find max length of all unit values for dynamic sizing
+  const maxUnitLength = Math.max(
+    data.unit1.length,
+    data.unit2.length,
+    data.unit3.length,
+    data.unit4.length,
+    1 // minimum length
+  )
+
+  // Calculate width based on max length (approx 18px per character for bold text + extra padding)
+  const unitWidth = Math.max(140, maxUnitLength * 20 + 60)
 
   return (
     <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-black shadow-2xl">
@@ -106,16 +117,63 @@ export function CertificateCard({ data }: { data: CertificateData }) {
               </dd>
             </div>
           ))}
+          
+          {/* Unit field with dynamic graph design */}
+          <div className="flex items-center gap-3 border-white/15 py-1">
+            <dt className="w-32 shrink-0 font-sans text-lg font-medium text-[#2bb6ea]">
+              Unit
+            </dt>
+            <span className="font-sans text-lg text-white">:</span>
+            <dd className="font-sans text-lg font-bold text-white">
+              <div 
+                className="relative flex items-center justify-center h-14"
+                style={{ width: `${unitWidth}px`, minWidth: '140px' }}
+              >
+                {/* Horizontal line - dynamic width with more padding */}
+                <div 
+                  className="absolute h-[2px] bg-white/60"
+                  style={{ width: `${unitWidth - 30}px` }}
+                ></div>
+                {/* Vertical line */}
+                <div className="absolute h-10 w-[2px] bg-white/60"></div>
+                {/* Values at positions - full text shown with more spacing */}
+                <span 
+                  className="absolute text-white font-bold text-base whitespace-nowrap"
+                  style={{ top: '4px', left: '8px' }}
+                >
+                  {data.unit1}
+                </span>
+                <span 
+                  className="absolute text-white font-bold text-base whitespace-nowrap"
+                  style={{ top: '4px', right: '8px' }}
+                >
+                  {data.unit2}
+                </span>
+                <span 
+                  className="absolute text-white font-bold text-base whitespace-nowrap"
+                  style={{ bottom: '4px', left: '8px' }}
+                >
+                  {data.unit3}
+                </span>
+                <span 
+                  className="absolute text-white font-bold text-base whitespace-nowrap"
+                  style={{ bottom: '4px', right: '8px' }}
+                >
+                  {data.unit4}
+                </span>
+              </div>
+            </dd>
+          </div>
         </dl>
 
         {/* Implant image */}
-        <div className="overflow-hidden rounded-2xl bg-black h-69">
+        <div className="overflow-hidden rounded-2xl bg-black h-73">
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"
             width={600}
             height={600}
-            className="h-full w-full"
+            className="h-full w-full mix-blend-hard-light"
           />
         </div>
       </div>
