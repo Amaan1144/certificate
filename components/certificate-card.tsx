@@ -62,7 +62,20 @@ export function CertificateCard({ data }: { data: CertificateData }) {
     <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-black shadow-2xl">
       {/* Gradient header with wavy bottom */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2bb673] via-[#1ba7a0] to-[#00a3e0]" />
+        {/* Plain inline linear-gradient (no Tailwind CSS custom properties).
+            Some PDF print/render engines don't resolve --tw-gradient-*
+            variables correctly, which was causing the header to print as
+            flat green instead of the green → teal → blue gradient. */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: '#1ba7a0',
+            backgroundImage:
+              'linear-gradient(to right, #2bb673, #1ba7a0, #00a3e0)',
+            WebkitPrintColorAdjust: 'exact',
+            printColorAdjust: 'exact',
+          }}
+        />
         {/* Wave mask at the bottom of the header (matches black body) */}
         <svg
           className="absolute inset-x-0 bottom-0 w-full"
