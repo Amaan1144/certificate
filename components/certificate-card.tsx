@@ -56,7 +56,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
   )
 
   // Calculate width based on max length (approx 18px per character for bold text + extra padding)
-  const unitWidth = Math.max(140, maxUnitLength * 20 + 60)
+  const unitWidth = Math.max(90, maxUnitLength * 20 + 10)
 
   return (
     <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-black shadow-2xl">
