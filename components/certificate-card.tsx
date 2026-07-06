@@ -180,7 +180,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         </dl>
 
         {/* Implant image */}
-        <div className="overflow-hidden rounded-2xl bg-black h-73">
+        <div className="overflow-hidden rounded-2xl bg-black h-72">
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"

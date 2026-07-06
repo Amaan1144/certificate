@@ -11,14 +11,14 @@ import { Button } from '@/components/ui/button'
 import { Printer } from 'lucide-react'
 
 // Standard PVC card size — same as Aadhaar / ATM card (CR-80 spec)
-// Height increased for better proportions on print
+// Height slightly increased for better visual proportion (54mm → 55mm)
 const CARD_WIDTH_IN = 86 / 25.4 // 85.6mm
-const CARD_HEIGHT_IN = 56 / 25.4 // 55.88mm (increased from 53.98mm for better fit)
+const CARD_HEIGHT_IN = 55 / 25.4 // 55mm (slightly increased from 53.98mm)
 const PX_PER_IN = 96 // CSS reference pixel density used by browsers
 
-// CertificateCard is authored at a fixed 1024px design width for HD quality printing
-// Increased from 768px to 1024px for sharper, crisper print output
-const CARD_DESIGN_WIDTH = 1024
+// CertificateCard is authored at a fixed 768px design width
+// Height increased for better proportions; quality improvements for print
+const CARD_DESIGN_WIDTH = 768
 
 export default function Page() {
   const [data, setData] = useState<CertificateData>(defaultCertificateData)
@@ -105,7 +105,7 @@ export default function Page() {
           card to print twice / duplicate blank pages. */}
       <div
         id="print-card"
-        className="hidden print:flex print:h-full print:w-full print:items-center print:justify-center"
+        className="hidden print:block"
       >
         <div
           style={{
@@ -163,11 +163,15 @@ export default function Page() {
             width: ${CARD_WIDTH_IN}in;
             height: ${CARD_HEIGHT_IN}in;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
 
           #print-card > div {
             border-radius: 0 !important;
             box-shadow: none !important;
+            transform-origin: top left;
           }
         }
       `}</style>
