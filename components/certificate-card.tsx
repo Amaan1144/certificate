@@ -108,9 +108,9 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           {fields.map((field) => (
             <div
               key={field.label}
-              className="flex items-center gap-3 border-white/15 py-0.2 last:border-b-0"
+              className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0"
             >
-              <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#ff1818]">
+              <dt className="w-32 shrink-0 font-sans text-xl text-[#ff1818]" style={{fontWeight: '700'}}>
                 {field.label}
               </dt>
               <span className="font-sans text-xl text-black">:</span>
@@ -120,8 +120,8 @@ export function CertificateCard({ data }: { data: CertificateData }) {
             </div>
           ))}
           
-          <div className="flex items-center gap-3 border-white/15">
-            <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#ff1818]">
+          <div className="flex items-center gap-2 border-white/15">
+            <dt className="w-32 shrink-0 font-sans text-xl text-[#ff1818]" style={{fontWeight: '700'}}>
               Unit
             </dt>
             <span className="font-sans text-xl text-black">:</span>
