@@ -96,25 +96,25 @@ export function CertificateCard({ data }: { data: CertificateData }) {
             <p className="mt-1 font-sans text-xl font-semibold text-white">
               Certificate of Limited Warranty
             </p>
-            <p className="mt-0.5 font-sans text-sm text-white/90">
+            <p className="mt-0.5 font-sans text-sm text-white/90 font-medium">
               hereby offer a warranty for following done in our lab
             </p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-[1.25fr_0.6fr] gap-6 px-8 pb-8">
+      <div className="grid grid-cols-[1.25fr_0.6fr] gap-6 px-8 pb-2">
         <dl className="flex flex-col justify-center">
           {fields.map((field) => (
             <div
               key={field.label}
-              className="flex items-center gap-3 border-white/15 py-0.5 last:border-b-0"
+              className="flex items-center gap-3 border-white/15 py-0.2 last:border-b-0"
             >
               <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#2bb6ea]">
                 {field.label}
               </dt>
               <span className="font-sans text-xl text-white">:</span>
-              <dd className="font-sans text-xl font-bold text-white">
+              <dd className="font-sans text-2xl font-bold text-white">
                 {field.value}
               </dd>
             </div>
@@ -164,7 +164,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           </div>
         </dl>
 
-        <div className="overflow-hidden rounded-2xl bg-black h-71">
+        <div className="overflow-hidden rounded-2xl bg-black h-68">
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"
@@ -175,7 +175,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-5 px-8 pb-8">
+      <div className="flex flex-wrap items-center justify-center gap-5 px-8 pb-1">
         <CerconLogo />
         <VitaLogo />
         <LavaLogo />
