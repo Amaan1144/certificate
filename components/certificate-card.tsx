@@ -79,7 +79,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         </svg>
 
         <div className="relative flex items-center gap-4 px-8 pb-9 pt-2">
-          <div className="flex h-22 w-22 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
+          <div className="flex h-19 w-19 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
             <Image
               src="/images/tooth-logo.png"
               alt="Digital Dental Lab logo"
@@ -93,7 +93,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
             <h1 className="font-serif text-3xl font-bold leading-tight text-[#0b2942] text-balance">
               Iram Digital Dental Lab
             </h1>
-            <p className="mt-1 font-sans text-xl font-semibold text-white">
+            <p className="font-sans text-xl font-semibold text-white">
               Certificate of Limited Warranty
             </p>
             <p className="mt-0.5 font-sans text-sm text-white/90 font-medium">
@@ -164,7 +164,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           </div>
         </dl>
 
-        <div className="overflow-hidden rounded-2xl bg-black h-68">
+        <div className="overflow-hidden rounded-2xl bg-black h-65" style={{width: '11rem'}}>
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"
