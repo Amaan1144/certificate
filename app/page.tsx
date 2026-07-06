@@ -11,12 +11,14 @@ import { Button } from '@/components/ui/button'
 import { Printer } from 'lucide-react'
 
 // Standard PVC card size — same as Aadhaar / ATM card (CR-80 spec)
-const CARD_WIDTH_IN = 3.375 // 85.6mm
-const CARD_HEIGHT_IN = 2.125 // 53.98mm
+// Height increased for better proportions on print
+const CARD_WIDTH_IN = 86 / 25.4 // 85.6mm
+const CARD_HEIGHT_IN = 58 / 25.4 // 55.88mm (increased from 53.98mm for better fit)
 const PX_PER_IN = 96 // CSS reference pixel density used by browsers
 
-// CertificateCard is authored at a fixed 768px design width (see w-[768px])
-const CARD_DESIGN_WIDTH = 768
+// CertificateCard is authored at a fixed 1024px design width for HD quality printing
+// Increased from 768px to 1024px for sharper, crisper print output
+const CARD_DESIGN_WIDTH = 1024
 
 export default function Page() {
   const [data, setData] = useState<CertificateData>(defaultCertificateData)
@@ -125,7 +127,8 @@ export default function Page() {
       {/* Print-only sizing rules: forces the physical page/card size.
           This is the ONLY print stylesheet in the app — do not add
           another @media print block elsewhere (e.g. globals.css), as
-          conflicting rules there previously caused duplicate pages. */}
+          conflicting rules there previously caused duplicate pages.
+          High-quality rendering optimized for crisp, sharp prints. */}
       <style>{`
         @media print {
           #app-main,
@@ -137,6 +140,9 @@ export default function Page() {
             -webkit-print-color-adjust: exact !important;
             color-adjust: exact !important;
             print-color-adjust: exact !important;
+            image-rendering: high-quality !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
           }
 
           @page {
