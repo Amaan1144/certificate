@@ -103,7 +103,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-[1.25fr_0.6fr] gap-6 px-8 pb-2">
+      <div className="grid grid-cols-[1.25fr_0.6fr] gap-6 px-8">
         <dl className="flex flex-col justify-center">
           {fields.map((field) => (
             <div
@@ -120,7 +120,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
             </div>
           ))}
           
-          <div className="flex items-center gap-3 border-white/15 py-1">
+          <div className="flex items-center gap-3 border-white/15">
             <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#2bb6ea]">
               Unit
             </dt>
