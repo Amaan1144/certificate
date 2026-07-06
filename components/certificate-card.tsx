@@ -78,8 +78,8 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           <path d="M0,60 L0,20 Q250,55 500,25 T800,30 L800,60 Z" fill="black" />
         </svg>
 
-        <div className="relative flex items-center gap-4 px-8 pb-11 pt-6">
-          <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
+        <div className="relative flex items-center gap-4 px-8 pb-9 pt-2">
+          <div className="flex h-22 w-22 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
             <Image
               src="/images/tooth-logo.png"
               alt="Digital Dental Lab logo"
@@ -175,7 +175,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-5 px-8 pb-1">
+      <div className="flex flex-wrap items-center justify-center gap-5 px-8 pb-0">
         <CerconLogo />
         <VitaLogo />
         <LavaLogo />

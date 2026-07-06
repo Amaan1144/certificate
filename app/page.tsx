@@ -12,7 +12,7 @@ import { Printer } from 'lucide-react'
 
 // Standard PVC card size — same as Aadhaar / ATM card (CR-80 spec)
 // Height slightly increased for better visual proportion (54mm → 55mm)
-const CARD_WIDTH_IN = 86 / 25.4 // 85.6mm
+const CARD_WIDTH_IN = 87 / 25.4 // 85.6mm
 const CARD_HEIGHT_IN = 64 / 25.4 // 55mm (slightly increased from 53.98mm)
 const PX_PER_IN = 96 // CSS reference pixel density used by browsers
 
