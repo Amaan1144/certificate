@@ -57,7 +57,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
   const unitWidth = Math.max(90, maxUnitLength * 20 + 10)
 
   return (
-    <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-black shadow-2xl">
+    <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-white shadow-2xl">
       <div className="relative">
         <div
           className="absolute inset-0"
@@ -75,7 +75,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M0,60 L0,20 Q250,55 500,25 T800,30 L800,60 Z" fill="black" />
+          <path d="M0,60 L0,20 Q250,55 500,25 T800,30 L800,60 Z" fill="white" />
         </svg>
 
         <div className="relative flex items-center gap-4 px-8 pb-9 pt-2">
@@ -96,65 +96,65 @@ export function CertificateCard({ data }: { data: CertificateData }) {
             <p className="font-sans text-xl font-semibold text-white">
               Certificate of Limited Warranty
             </p>
-            <p className="mt-0.5 font-sans text-sm text-white/90 font-medium">
+            <p className="mt-0.5 font-sans text-sm text-white font-medium">
               hereby offer a warranty for following done in our lab
             </p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-[1.25fr_0.6fr] gap-6 px-8">
+      <div className="grid grid-cols-[1.25fr_0.5fr] gap-6 px-8">
         <dl className="flex flex-col justify-center">
           {fields.map((field) => (
             <div
               key={field.label}
               className="flex items-center gap-3 border-white/15 py-0.2 last:border-b-0"
             >
-              <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#2bb6ea]">
+              <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#ff1818]">
                 {field.label}
               </dt>
-              <span className="font-sans text-xl text-white">:</span>
-              <dd className="font-sans text-2xl font-bold text-white">
+              <span className="font-sans text-xl text-black">:</span>
+              <dd className="font-sans text-2xl font-bold text-black">
                 {field.value}
               </dd>
             </div>
           ))}
           
           <div className="flex items-center gap-3 border-white/15">
-            <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#2bb6ea]">
+            <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#ff1818]">
               Unit
             </dt>
-            <span className="font-sans text-xl text-white">:</span>
-            <dd className="font-sans text-xl font-bold text-white">
+            <span className="font-sans text-xl text-black">:</span>
+            <dd className="font-sans text-xl font-bold text-black">
               <div 
                 className="relative flex items-center justify-center h-14"
                 style={{ width: `${unitWidth}px`, minWidth: '140px' }}
               >
                 <div 
-                  className="absolute h-[2px] bg-white/60"
+                  className="absolute h-[2px] bg-black/60"
                   style={{ width: `${unitWidth - 30}px` }}
                 ></div>
-                <div className="absolute h-10 w-[2px] bg-white/60"></div>
+                <div className="absolute h-10 w-[2px] bg-black/60"></div>
                 <span 
-                  className="absolute text-white font-bold text-lg whitespace-nowrap"
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
                   style={{ top: '4px', left: '8px' }}
                 >
                   {data.unit1}
                 </span>
                 <span 
-                  className="absolute text-white font-bold text-lg whitespace-nowrap"
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
                   style={{ top: '4px', right: '8px' }}
                 >
                   {data.unit2}
                 </span>
                 <span 
-                  className="absolute text-white font-bold text-lg whitespace-nowrap"
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
                   style={{ bottom: '4px', left: '8px' }}
                 >
                   {data.unit3}
                 </span>
                 <span 
-                  className="absolute text-white font-bold text-lg whitespace-nowrap"
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
                   style={{ bottom: '4px', right: '8px' }}
                 >
                   {data.unit4}
@@ -164,7 +164,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           </div>
         </dl>
 
-        <div className="overflow-hidden rounded-2xl bg-black h-65" style={{width: '11rem'}}>
+        <div className="overflow-hidden rounded-2xl bg-white h-65" style={{width: '11rem'}}>
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"

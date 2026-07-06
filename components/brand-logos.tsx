@@ -65,10 +65,10 @@ export function IvoclarLogo() {
         <span className="h-2 w-1 rounded-full bg-[#8bc53f]" />
         <span className="h-1 w-1 rounded-full bg-[#00a3e0]" />
       </div>
-      <span className="font-sans text-lg font-semibold leading-none text-white">
+      <span className="font-sans text-lg font-semibold leading-none text-black">
         ivoclar
       </span>
-      <span className="font-sans text-lg font-semibold leading-none text-white">
+      <span className="font-sans text-lg font-semibold leading-none text-black">
         vivadent<span className="text-[#00a3e0]">:</span>
       </span>
     </div>
