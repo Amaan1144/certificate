@@ -12,8 +12,8 @@ import { Printer } from 'lucide-react'
 
 // Standard PVC card size — same as Aadhaar / ATM card (CR-80 spec)
 // Height slightly increased for better visual proportion (54mm → 55mm)
-const CARD_WIDTH_IN = 91 / 25.4 // 85.6mm
-const CARD_HEIGHT_IN = 54 / 25.4 // 55mm (slightly increased from 53.98mm)
+const CARD_WIDTH_IN = 84 / 25.4 // 85.6mm
+const CARD_HEIGHT_IN = 64 / 25.4 // 55mm (slightly increased from 53.98mm)
 const PX_PER_IN = 96 // CSS reference pixel density used by browsers
 
 // CertificateCard is authored at a fixed 768px design width
@@ -37,12 +37,10 @@ export default function Page() {
       const targetWidthPx = CARD_WIDTH_IN * PX_PER_IN
       const targetHeightPx = CARD_HEIGHT_IN * PX_PER_IN
 
-      // "contain" fit: pick whichever scale is smaller so the full card
-      // is visible on the CR-80 card with nothing cropped off.
+      // Fill full width of CR-80 card - use width scale only
       const widthScale = targetWidthPx / CARD_DESIGN_WIDTH
-      const heightScale = targetHeightPx / designHeight
 
-      setScale(Math.min(widthScale, heightScale))
+      setScale(widthScale)
     }
 
     computeScale()

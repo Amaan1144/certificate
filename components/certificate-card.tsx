@@ -78,7 +78,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           <path d="M0,60 L0,20 Q250,55 500,25 T800,30 L800,60 Z" fill="black" />
         </svg>
 
-        <div className="relative flex items-center gap-4 px-8 pb-14 pt-6">
+        <div className="relative flex items-center gap-4 px-8 pb-11 pt-6">
           <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
             <Image
               src="/images/tooth-logo.png"
@@ -90,7 +90,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           </div>
 
           <div className="min-w-0">
-            <h1 className="font-serif text-5xl font-bold leading-tight text-[#0b2942] text-balance">
+            <h1 className="font-serif text-3xl font-bold leading-tight text-[#0b2942] text-balance">
               Iram Digital Dental Lab
             </h1>
             <p className="mt-1 font-sans text-xl font-semibold text-white">
@@ -108,7 +108,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           {fields.map((field) => (
             <div
               key={field.label}
-              className="flex items-center gap-3 border-white/15 py-1 last:border-b-0"
+              className="flex items-center gap-3 border-white/15 py-0.5 last:border-b-0"
             >
               <dt className="w-32 shrink-0 font-sans text-xl font-medium text-[#2bb6ea]">
                 {field.label}
@@ -164,7 +164,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           </div>
         </dl>
 
-        <div className="overflow-hidden rounded-2xl bg-black h-73">
+        <div className="overflow-hidden rounded-2xl bg-black h-71">
           <Image
             src="/images/dental-implant.png"
             alt="Dental implant with ceramic crown"
