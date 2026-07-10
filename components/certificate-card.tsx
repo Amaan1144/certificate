@@ -144,7 +144,7 @@ export function CertificateCard({ data, colorScheme = 'ocean' }: { data: Certifi
               key={field.label}
               className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0"
             >
-              <dt className="w-32 shrink-0 font-sans text-xl font-bold" style={{ color: scheme.labelColor }}>
+              <dt className="w-32 shrink-0 font-sans font-bold" style={{ color: scheme.labelColor, fontSize: '18px' }}>
                 {field.label}
               </dt>
               <span className="font-sans text-xl text-black">:</span>
