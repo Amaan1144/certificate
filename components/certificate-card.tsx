@@ -35,7 +35,43 @@ export const defaultCertificateData: CertificateData = {
   unit4: '4',
 }
 
-export function CertificateCard({ data }: { data: CertificateData }) {
+// Color scheme definitions
+export const colorSchemes = {
+  ocean: {
+    name: 'Ocean (Default)',
+    gradient: 'linear-gradient(to right, #2bb673, #1ba7a0, #00a3e0)',
+    labelColor: '#ff1818',
+    titleColor: '#0b2942',
+    imagePath: '/images/dental-implant.png',
+  },
+  professional: {
+    name: 'Professional',
+    gradient: 'linear-gradient(to right, #1e3a8a, #1e40af, #334155)',
+    labelColor: '#dc2626',
+    titleColor: '#ffffff',
+    imagePath: '/images/dental-implant-professional.jpg',
+  },
+  premium: {
+    name: 'Premium',
+    gradient: 'linear-gradient(to right, #6d28d9, #5b21b6, #3730a3)',
+    labelColor: '#ea580c',
+    titleColor: '#ffffff',
+    imagePath: '/images/dental-implant-premium.png',
+  },
+  elegant: {
+    name: 'Elegant',
+    gradient: 'linear-gradient(to right, #d97706, #b45309, #a16207)',
+    labelColor: '#1e40af',
+    titleColor: '#1f2937',
+    imagePath: '/images/dental-implant-elegant.png',
+  },
+}
+
+export type ColorScheme = keyof typeof colorSchemes
+
+export function CertificateCard({ data, colorScheme = 'ocean' }: { data: CertificateData; colorScheme?: ColorScheme }) {
+  const scheme = colorSchemes[colorScheme]
+  
   const fields: { label: string; value: string }[] = [
     { label: 'Date', value: data.date },
     { label: 'Job no', value: data.jobNo },
@@ -62,9 +98,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
         <div
           className="absolute inset-0"
           style={{
-            backgroundColor: '#1ba7a0',
-            backgroundImage:
-              'linear-gradient(to right, #2bb673, #1ba7a0, #00a3e0)',
+            backgroundImage: scheme.gradient,
             WebkitPrintColorAdjust: 'exact',
             printColorAdjust: 'exact',
           }}
@@ -90,7 +124,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           </div>
 
           <div className="min-w-0">
-            <h1 className="font-serif text-3xl font-bold leading-tight text-[#0b2942] text-balance">
+            <h1 className="font-serif text-3xl font-bold leading-tight text-balance" style={{ color: scheme.titleColor }}>
               Iram Digital Dental Lab
             </h1>
             <p className="font-sans text-xl font-semibold text-white">
@@ -110,7 +144,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
               key={field.label}
               className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0"
             >
-              <dt className="w-32 shrink-0 font-sans text-xl text-[#ff1818]" style={{fontWeight: '700'}}>
+              <dt className="w-32 shrink-0 font-sans text-xl font-bold" style={{ color: scheme.labelColor }}>
                 {field.label}
               </dt>
               <span className="font-sans text-xl text-black">:</span>
@@ -121,7 +155,7 @@ export function CertificateCard({ data }: { data: CertificateData }) {
           ))}
           
           <div className="flex items-center gap-2 border-white/15">
-            <dt className="w-32 shrink-0 font-sans text-xl text-[#ff1818]" style={{fontWeight: '700'}}>
+            <dt className="w-32 shrink-0 font-sans text-xl font-bold" style={{ color: scheme.labelColor }}>
               Unit
             </dt>
             <span className="font-sans text-xl text-black">:</span>
@@ -166,11 +200,11 @@ export function CertificateCard({ data }: { data: CertificateData }) {
 
         <div className="overflow-hidden rounded-2xl bg-white h-65" style={{width: '11rem'}}>
           <Image
-            src="/images/dental-implant.png"
+            src={scheme.imagePath}
             alt="Dental implant with ceramic crown"
             width={600}
             height={600}
-            className="h-full w-full mix-blend-hard-light"
+            className="h-full w-full"
           />
         </div>
       </div>

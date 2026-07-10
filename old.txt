@@ -1,0 +1,370 @@
+import Image from 'next/image'
+import {
+  AiditeLogo,
+  CerconLogo,
+  IvoclarLogo,
+  LavaLogo,
+  VitaLogo,
+} from '@/components/brand-logos'
+
+export type CertificateData = {
+  date: string
+  jobNo: string
+  doctorName: string
+  patientName: string
+  shade: string
+  typeOfWork: string
+  warranty: string
+  unit1: string
+  unit2: string
+  unit3: string
+  unit4: string
+}
+
+export const defaultCertificateData: CertificateData = {
+  date: '07/05/2026',
+  jobNo: '9966',
+  doctorName: 'Dr. Mahendra Sharma',
+  patientName: 'Mahendra Pal',
+  shade: 'A1',
+  typeOfWork: 'Zirconia',
+  warranty: '10 Years',
+  unit1: '1',
+  unit2: '2',
+  unit3: '3',
+  unit4: '4',
+}
+
+export function CertificateCard({ data }: { data: CertificateData }) {
+  const fields: { label: string; value: string }[] = [
+    { label: 'Date', value: data.date },
+    { label: 'Job no', value: data.jobNo },
+    { label: 'Doctor name', value: data.doctorName },
+    { label: 'Patient name', value: data.patientName },
+    { label: 'Shade', value: data.shade },
+    { label: 'Type of work', value: data.typeOfWork },
+    { label: 'Warranty', value: data.warranty },
+  ]
+
+  const maxUnitLength = Math.max(
+    data.unit1.length,
+    data.unit2.length,
+    data.unit3.length,
+    data.unit4.length,
+    1
+  )
+
+  const unitWidth = Math.max(90, maxUnitLength * 20 + 10)
+
+  return (
+    <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+      <div className="relative">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: '#1ba7a0',
+            backgroundImage:
+              'linear-gradient(to right, #2bb673, #1ba7a0, #00a3e0)',
+            WebkitPrintColorAdjust: 'exact',
+            printColorAdjust: 'exact',
+          }}
+        />
+        <svg
+          className="absolute inset-x-0 bottom-0 w-full"
+          viewBox="0 0 800 60"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0,60 L0,20 Q250,55 500,25 T800,30 L800,60 Z" fill="white" />
+        </svg>
+
+        <div className="relative flex items-center gap-4 px-8 pb-9 pt-2">
+          <div className="flex h-19 w-19 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
+            <Image
+              src="/images/tooth-logo.png"
+              alt="Digital Dental Lab logo"
+              width={96}
+              height={96}
+              className="h-16 w-16 object-contain"
+            />
+          </div>
+
+          <div className="min-w-0">
+            <h1 className="font-serif text-3xl font-bold leading-tight text-[#0b2942] text-balance">
+              Iram Digital Dental Lab
+            </h1>
+            <p className="font-sans text-xl font-semibold text-white">
+              Certificate of Limited Warranty
+            </p>
+            <p className="mt-0.5 font-sans text-sm text-white font-medium">
+              hereby offer a warranty for following done in our lab
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-[1.25fr_0.5fr] gap-6 px-8">
+        <dl className="flex flex-col justify-center">
+          {fields.map((field) => (
+            <div
+              key={field.label}
+              className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0"
+            >
+              <dt className="w-32 shrink-0 font-sans text-xl text-[#ff1818]" style={{fontWeight: '700'}}>
+                {field.label}
+              </dt>
+              <span className="font-sans text-xl text-black">:</span>
+              <dd className="font-sans text-2xl font-bold text-black">
+                {field.value}
+              </dd>
+            </div>
+          ))}
+          
+          <div className="flex items-center gap-2 border-white/15">
+            <dt className="w-32 shrink-0 font-sans text-xl text-[#ff1818]" style={{fontWeight: '700'}}>
+              Unit
+            </dt>
+            <span className="font-sans text-xl text-black">:</span>
+            <dd className="font-sans text-xl font-bold text-black">
+              <div 
+                className="relative flex items-center justify-center h-14"
+                style={{ width: `${unitWidth}px`, minWidth: '140px' }}
+              >
+                <div 
+                  className="absolute h-[2px] bg-black/60"
+                  style={{ width: `${unitWidth - 30}px` }}
+                ></div>
+                <div className="absolute h-10 w-[2px] bg-black/60"></div>
+                <span 
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
+                  style={{ top: '4px', left: '8px' }}
+                >
+                  {data.unit1}
+                </span>
+                <span 
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
+                  style={{ top: '4px', right: '8px' }}
+                >
+                  {data.unit2}
+                </span>
+                <span 
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
+                  style={{ bottom: '4px', left: '8px' }}
+                >
+                  {data.unit3}
+                </span>
+                <span 
+                  className="absolute text-black font-bold text-lg whitespace-nowrap"
+                  style={{ bottom: '4px', right: '8px' }}
+                >
+                  {data.unit4}
+                </span>
+              </div>
+            </dd>
+          </div>
+        </dl>
+
+        <div className="overflow-hidden rounded-2xl bg-white h-65" style={{width: '11rem'}}>
+          <Image
+            src="/images/dental-implant.png"
+            alt="Dental implant with ceramic crown"
+            width={600}
+            height={600}
+            className="h-full w-full mix-blend-hard-light"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-5 px-8 pb-0">
+        <CerconLogo />
+        <VitaLogo />
+        <LavaLogo />
+        <IvoclarLogo />
+        <AiditeLogo />
+      </div>
+    </div>
+  )
+}
+
+
+
+///page.tsx
+
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import {
+  CertificateCard,
+  defaultCertificateData,
+  type CertificateData,
+} from '@/components/certificate-card'
+import { CertificateForm } from '@/components/certificate-form'
+import { Button } from '@/components/ui/button'
+import { Printer } from 'lucide-react'
+
+// Standard PVC card size — same as Aadhaar / ATM card (CR-80 spec)
+// Height slightly increased for better visual proportion (54mm → 55mm)
+const CARD_WIDTH_IN = 87 / 25.4 // 85.6mm
+const CARD_HEIGHT_IN = 64 / 25.4 // 55mm (slightly increased from 53.98mm)
+const PX_PER_IN = 96 // CSS reference pixel density used by browsers
+
+// CertificateCard is authored at a fixed 768px design width
+// Height increased for better proportions; quality improvements for print
+const CARD_DESIGN_WIDTH = 768
+
+export default function Page() {
+  const [data, setData] = useState<CertificateData>(defaultCertificateData)
+  const measureRef = useRef<HTMLDivElement>(null)
+  const [scale, setScale] = useState(1)
+
+  // Whenever the data changes, the card's natural height can change too
+  // (longer names, etc.), so we re-measure and recompute the print scale.
+  useEffect(() => {
+    function computeScale() {
+      const el = measureRef.current
+      if (!el) return
+
+      const designHeight = el.offsetHeight // natural height at 768px width
+
+      const targetWidthPx = CARD_WIDTH_IN * PX_PER_IN
+      const targetHeightPx = CARD_HEIGHT_IN * PX_PER_IN
+
+      // Fill full width of CR-80 card - use width scale only
+      const widthScale = targetWidthPx / CARD_DESIGN_WIDTH
+
+      setScale(widthScale)
+    }
+
+    computeScale()
+    window.addEventListener('resize', computeScale)
+    return () => window.removeEventListener('resize', computeScale)
+  }, [data])
+
+  return (
+    <>
+      {/* On-screen app (hidden while printing) */}
+      <main
+        id="app-main"
+        className="screen-only min-h-screen bg-black p-4 print:hidden sm:p-8"
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[minmax(320px,420px)_1fr] lg:items-start">
+          {/* Form */}
+          <div className="lg:sticky lg:top-8">
+            <CertificateForm data={data} onChange={setData} />
+          </div>
+
+          {/* Card preview */}
+          <div className="flex flex-col items-center gap-5">
+            <div className="flex justify-center">
+              <CertificateCard data={data} />
+            </div>
+
+            <Button
+              onClick={() => window.print()}
+              size="lg"
+              className="gap-2 bg-white text-black hover:bg-white/90"
+            >
+              <Printer className="h-5 w-5" />
+              Print PVC Card
+            </Button>
+          </div>
+        </div>
+      </main>
+
+      {/* Hidden, off-screen clone used only to measure the card's natural
+          height at its 768px design width. Not visible on screen; forced
+          out of the print flow entirely via display:none below. */}
+      <div
+        ref={measureRef}
+        id="measure-clone"
+        aria-hidden="true"
+        style={{
+          position: 'fixed',
+          top: -99999,
+          left: -99999,
+          pointerEvents: 'none',
+        }}
+      >
+        <CertificateCard data={data} />
+      </div>
+
+      {/* Print-only copy: the ONLY thing rendered on paper, scaled down to
+          the exact CR-80 (Aadhaar / ATM) card dimensions. Kept in normal
+          document flow for print (NOT position:fixed) — fixed-position
+          elements repeat on every printed page, which was causing the
+          card to print twice / duplicate blank pages. */}
+      <div
+        id="print-card"
+        className="hidden print:block"
+      >
+        <div
+          style={{
+            width: CARD_DESIGN_WIDTH,
+            // Use `zoom`, not `transform: scale()`. `transform` rasterizes
+            // the gradient header and the SVG wave overlay separately at
+            // full size and THEN shrinks the pixels, which leaves a
+            // sub-pixel seam/hairline right where the wave meets the
+            // black body. `zoom` re-lays-out and re-paints everything at
+            // the target size directly, so the wave and gradient are
+            // rendered together with no seam.
+            zoom: scale,
+          }}
+        >
+          <CertificateCard data={data} />
+        </div>
+      </div>
+
+      {/* Print-only sizing rules: forces the physical page/card size.
+          This is the ONLY print stylesheet in the app — do not add
+          another @media print block elsewhere (e.g. globals.css), as
+          conflicting rules there previously caused duplicate pages.
+          High-quality rendering optimized for crisp, sharp prints. */}
+      <style>{`
+        @media print {
+          #app-main,
+          #measure-clone {
+            display: none !important;
+          }
+
+          * {
+            -webkit-print-color-adjust: exact !important;
+            color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            image-rendering: high-quality !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+          }
+
+          @page {
+            size: ${CARD_WIDTH_IN}in ${CARD_HEIGHT_IN}in;
+            margin: 0;
+          }
+
+          html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: ${CARD_WIDTH_IN}in;
+            height: ${CARD_HEIGHT_IN}in;
+            overflow: hidden !important;
+            background: #fff !important;
+          }
+
+          #print-card {
+            width: ${CARD_WIDTH_IN}in;
+            height: ${CARD_HEIGHT_IN}in;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          #print-card > div {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            transform-origin: top left;
+          }
+        }
+      `}</style>
+    </>
+  )
+}

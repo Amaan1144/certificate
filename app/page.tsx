@@ -5,6 +5,8 @@ import {
   CertificateCard,
   defaultCertificateData,
   type CertificateData,
+  colorSchemes,
+  type ColorScheme,
 } from '@/components/certificate-card'
 import { CertificateForm } from '@/components/certificate-form'
 import { Button } from '@/components/ui/button'
@@ -22,6 +24,7 @@ const CARD_DESIGN_WIDTH = 768
 
 export default function Page() {
   const [data, setData] = useState<CertificateData>(defaultCertificateData)
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('ocean')
   const measureRef = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(1)
 
@@ -63,8 +66,28 @@ export default function Page() {
 
           {/* Card preview */}
           <div className="flex flex-col items-center gap-5">
+            {/* Color Scheme Selector */}
+            <div className="w-full max-w-xl">
+              <p className="text-white text-sm font-medium mb-3 text-center">Design Options</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {(Object.keys(colorSchemes) as ColorScheme[]).map((scheme) => (
+                  <button
+                    key={scheme}
+                    onClick={() => setColorScheme(scheme)}
+                    className={`py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      colorScheme === scheme
+                        ? 'bg-white text-black ring-2 ring-white'
+                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    }`}
+                  >
+                    {colorSchemes[scheme].name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="flex justify-center">
-              <CertificateCard data={data} />
+              <CertificateCard data={data} colorScheme={colorScheme} />
             </div>
 
             <Button
@@ -93,7 +116,7 @@ export default function Page() {
           pointerEvents: 'none',
         }}
       >
-        <CertificateCard data={data} />
+        <CertificateCard data={data} colorScheme={colorScheme} />
       </div>
 
       {/* Print-only copy: the ONLY thing rendered on paper, scaled down to
@@ -118,7 +141,7 @@ export default function Page() {
             zoom: scale,
           }}
         >
-          <CertificateCard data={data} />
+          <CertificateCard data={data} colorScheme={colorScheme} />
         </div>
       </div>
 
