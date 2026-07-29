@@ -44,28 +44,42 @@ export const colorSchemes = {
     gradient: 'linear-gradient(to right, #2bb673, #1ba7a0, #00a3e0)',
     labelColor: '#ff1818',
     titleColor: '#0b2942',
-    imagePath: '/images/dental-implant.jpg',
+    imagePath: '/images/dental-implant.png',
   },
   professional: {
     name: 'Professional',
     gradient: 'linear-gradient(to right, #1e3a8a, #1e40af, #334155)',
     labelColor: '#dc2626',
     titleColor: '#ffffff',
-    imagePath: '/images/dental-implant-professional.jpg',
+    imagePath: '/images/dental-implant-professional.png',
   },
   premium: {
     name: 'Premium',
     gradient: 'linear-gradient(to right, #6d28d9, #5b21b6, #3730a3)',
     labelColor: '#ea580c',
     titleColor: '#ffffff',
-    imagePath: '/images/dental-implant-premium.jpg',
+    imagePath: '/images/dental-implant-premium.png',
   },
   elegant: {
     name: 'Elegant',
     gradient: 'linear-gradient(to right, #d97706, #b45309, #a16207)',
     labelColor: '#1e40af',
     titleColor: '#1f2937',
-    imagePath: '/images/dental-implant-elegant.jpg',
+    imagePath: '/images/dental-implant-elegant.png',
+  },
+  rose: {
+    name: 'Rose Gold',
+    gradient: 'linear-gradient(to right, #be185d, #db2777, #ec4899)',
+    labelColor: '#1e3a8a',
+    titleColor: '#ffffff',
+    imagePath: '/images/dental-implant-rose.png',
+  },
+  teal: {
+    name: 'Deep Teal',
+    gradient: 'linear-gradient(to right, #0d9488, #14b8a6, #2dd4bf)',
+    labelColor: '#7c2d12',
+    titleColor: '#1f2937',
+    imagePath: '/images/dental-implant-teal.png',
   },
 }
 
@@ -200,7 +214,7 @@ export function CertificateCard({ data, colorScheme = 'ocean' }: { data: Certifi
           </div>
         </dl>
 
-        <div className="overflow-hidden rounded-2xl bg-white h-65" style={{width: '11rem'}}>
+        <div className="overflow-hidden bg-white h-65" style={{width: '11rem',position: 'relative',left: '26px'}}>
           <Image
             src={scheme.imagePath}
             alt="Dental implant with ceramic crown"
