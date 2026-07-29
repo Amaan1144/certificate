@@ -8,6 +8,7 @@ import {
 } from '@/components/brand-logos'
 
 export type CertificateData = {
+  labName: string
   date: string
   jobNo: string
   doctorName: string
@@ -22,6 +23,7 @@ export type CertificateData = {
 }
 
 export const defaultCertificateData: CertificateData = {
+  labName: 'Iram Digital Dental Lab',
   date: '07/05/2026',
   jobNo: '9966',
   doctorName: 'Dr. Mahendra Sharma',
@@ -42,7 +44,7 @@ export const colorSchemes = {
     gradient: 'linear-gradient(to right, #2bb673, #1ba7a0, #00a3e0)',
     labelColor: '#ff1818',
     titleColor: '#0b2942',
-    imagePath: '/images/dental-implant.png',
+    imagePath: '/images/dental-implant.jpg',
   },
   professional: {
     name: 'Professional',
@@ -56,14 +58,14 @@ export const colorSchemes = {
     gradient: 'linear-gradient(to right, #6d28d9, #5b21b6, #3730a3)',
     labelColor: '#ea580c',
     titleColor: '#ffffff',
-    imagePath: '/images/dental-implant-premium.png',
+    imagePath: '/images/dental-implant-premium.jpg',
   },
   elegant: {
     name: 'Elegant',
     gradient: 'linear-gradient(to right, #d97706, #b45309, #a16207)',
     labelColor: '#1e40af',
     titleColor: '#1f2937',
-    imagePath: '/images/dental-implant-elegant.png',
+    imagePath: '/images/dental-implant-elegant.jpg',
   },
 }
 
@@ -125,7 +127,7 @@ export function CertificateCard({ data, colorScheme = 'ocean' }: { data: Certifi
 
           <div className="min-w-0">
             <h1 className="font-serif text-3xl font-bold leading-tight text-balance" style={{ color: scheme.titleColor }}>
-              Iram Digital Dental Lab
+              {data.labName}
             </h1>
             <p className="font-sans text-xl font-semibold text-white">
               Certificate of Limited Warranty
@@ -137,7 +139,7 @@ export function CertificateCard({ data, colorScheme = 'ocean' }: { data: Certifi
         </div>
       </div>
 
-      <div className="grid grid-cols-[1.25fr_0.5fr] gap-6 px-8">
+      <div className="grid grid-cols-[1.25fr_0.5fr] gap-6 px-8" style={{paddingRight: '0px'}}>
         <dl className="flex flex-col justify-center">
           {fields.map((field) => (
             <div

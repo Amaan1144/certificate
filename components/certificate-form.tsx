@@ -3,6 +3,7 @@
 import type { CertificateData } from '@/components/certificate-card'
 
 const inputFields: { key: keyof CertificateData; label: string }[] = [
+  { key: 'labName', label: 'Lab name' },
   { key: 'date', label: 'Date' },
   { key: 'jobNo', label: 'Job no' },
   { key: 'doctorName', label: 'Doctor name' },
