@@ -111,7 +111,7 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
             printColorAdjust: 'exact',
           }}
         />
-        <div className="relative flex items-center gap-5 px-8 py-5">
+        <div className="relative flex items-center gap-5 px-8 py-6">
           <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white shadow-md">
             <Image
               src="/images/tooth-logo.png"
@@ -140,7 +140,7 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
           {fields.map((field) => (
             <div
               key={field.label}
-              className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0"
+              className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0 mb-1"
             >
               <dt className="w-32 shrink-0 font-sans font-bold" style={{ color: 'black', fontSize: '18px' }}>
                 {field.label}
