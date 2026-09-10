@@ -102,7 +102,7 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
   const unitWidth = Math.max(90, maxUnitLength * 20 + 10)
 
   return (
-    <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+    <div className="relative w-[768px] max-w-full overflow-hidden rounded-[2rem] bg-white">
       <div className="relative" style={{borderBottom: "2px solid red"}}>
         <div
           className="absolute inset-0"
@@ -111,8 +111,8 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
             printColorAdjust: 'exact',
           }}
         />
-        <div className="relative flex items-center gap-5 px-8 py-6">
-          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white shadow-md">
+        <div className="relative flex items-center gap-5 px-8 py-7">
+          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white">
             <Image
               src="/images/tooth-logo.png"
               alt="Digital Dental Lab logo"
@@ -122,7 +122,7 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
             />
           </div>
           <div>
-          <div className="min-w-0 flex-1 bg-[#172d47]" style={{borderRadius: "20px", padding: "6px", paddingLeft: "17px", position: "absolute", right:"4px", top: "5px", width: "80%"}}>
+          <div className="min-w-0 flex-1 bg-[#172d47]" style={{borderRadius: "20px", padding: "6px", paddingLeft: "17px", position: "absolute", right:"10px", top: "0px", width: "81%"}}>
             <h1 className="font-sans text-3xl font-extrabold uppercase leading-none tracking-[0.08em] text-white">
               {data.labName}
             </h1>
@@ -152,7 +152,7 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
             </div>
           ))}
           
-          <div className="flex items-center gap-2 border-white/15">
+          <div className="flex items-center gap-2 border-white/15 mb-1">
             <dt className="w-32 shrink-0 font-sans text-xl font-bold" style={{ color: 'black' }}>
               Unit
             </dt>
