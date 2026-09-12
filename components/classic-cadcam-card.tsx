@@ -153,9 +153,9 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
           {fields.map((field) => (
             <div
               key={field.label}
-              className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0 mb-1"
+              className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0 mb-0.5"
             >
-              <dt className="w-34 shrink-0 font-sans font-bold" style={{ color: 'black', fontSize: '21px' }}>
+              <dt className="w-39 shrink-0 font-sans font-bold text-2xl text-black">
                 {field.label}
               </dt>
               <span className="font-sans text-xl text-black">:</span>
@@ -165,8 +165,8 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
             </div>
           ))}
           
-          <div className="flex items-center gap-2 border-white/15 mb-1">
-            <dt className="w-32 shrink-0 font-sans text-xl font-bold" style={{ color: 'black' }}>
+          <div className="flex items-center gap-2 border-white/15 mb-0.5">
+            <dt className="w-39 shrink-0 font-sans text-2xl text-black font-bold">
               Unit
             </dt>
             <span className="font-sans text-xl text-black">:</span>
