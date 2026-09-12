@@ -1,4 +1,11 @@
 import Image from 'next/image'
+import {
+  AiditeLogo,
+  CerconLogo,
+  IvoclarLogo,
+  LavaLogo,
+  VitaLogo,
+} from '@/components/brand-logos'
 
 export type CertificateData = {
   labName: string
@@ -38,6 +45,7 @@ export const colorSchemes = {
     labelColor: '#ff1818',
     titleColor: '#0b2942',
     imagePath: '/images/dental-implant.png',
+    darkBg: '#172d47',
   },
   professional: {
     name: 'Professional',
@@ -45,6 +53,7 @@ export const colorSchemes = {
     labelColor: '#dc2626',
     titleColor: '#ffffff',
     imagePath: '/images/dental-implant-professional.png',
+    darkBg: '#1f2933',
   },
   premium: {
     name: 'Premium',
@@ -52,6 +61,7 @@ export const colorSchemes = {
     labelColor: '#ea580c',
     titleColor: '#ffffff',
     imagePath: '/images/dental-implant-premium.png',
+    darkBg: '#3b1f4d',
   },
   elegant: {
     name: 'Elegant',
@@ -59,6 +69,7 @@ export const colorSchemes = {
     labelColor: '#1e40af',
     titleColor: '#1f2937',
     imagePath: '/images/dental-implant-elegant.png',
+    darkBg: '#4a3410',
   },
   rose: {
     name: 'Rose Gold',
@@ -66,6 +77,7 @@ export const colorSchemes = {
     labelColor: '#1e3a8a',
     titleColor: '#ffffff',
     imagePath: '/images/dental-implant-rose.png',
+    darkBg: '#4a1030',
   },
   teal: {
     name: 'Deep Teal',
@@ -73,6 +85,7 @@ export const colorSchemes = {
     labelColor: '#7c2d12',
     titleColor: '#1f2937',
     imagePath: '/images/dental-implant-teal.png',
+    darkBg: '#0d3b36',
   },
 }
 
@@ -111,18 +124,18 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
             printColorAdjust: 'exact',
           }}
         />
-        <div className="relative flex items-center gap-5 px-8 py-7">
-          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white">
+        <div className="relative flex items-center gap-5 px-8 py-7" style={{paddingTop: '0px', paddingLeft: '18px'}}>
+          <div className="flex h-27 w-27 shrink-0 items-center justify-center rounded-xl bg-white">
             <Image
               src="/images/tooth-logo.png"
               alt="Digital Dental Lab logo"
               width={96}
               height={96}
-              className="h-[4.25rem] w-[4.25rem] object-contain"
+              className="h-[7.25rem] w-[7.25rem] object-contain"
             />
           </div>
           <div>
-          <div className="min-w-0 flex-1 bg-[#172d47]" style={{borderRadius: "20px", padding: "6px", paddingLeft: "17px", position: "absolute", right:"10px", top: "0px", width: "81%"}}>
+          <div className="min-w-0 flex-1" style={{backgroundColor: scheme.darkBg, borderRadius: "20px", padding: "6px", paddingLeft: "17px", position: "absolute", right:"10px", top: "0px", width: "81%"}}>
             <h1 className="font-sans text-3xl font-extrabold uppercase leading-none tracking-[0.08em] text-white">
               {data.labName}
             </h1>
@@ -142,7 +155,7 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
               key={field.label}
               className="flex items-center gap-2 border-white/15 py-0.2 last:border-b-0 mb-1"
             >
-              <dt className="w-32 shrink-0 font-sans font-bold" style={{ color: 'black', fontSize: '18px' }}>
+              <dt className="w-34 shrink-0 font-sans font-bold" style={{ color: 'black', fontSize: '21px' }}>
                 {field.label}
               </dt>
               <span className="font-sans text-xl text-black">:</span>
@@ -196,13 +209,21 @@ export function ClassicCadCamCard({ data, colorScheme = 'ocean' }: { data: Certi
           </div>
         </dl>
 
-        <div className="overflow-hidden bg-white h-55" style={{width: '11rem',position: 'relative',left: '26px', top: '10%'}}>
+        <div className="bg-white h-55" style={{width: '11rem',position: 'relative',left: '26px', top: '10%'}}>
           <Image
             src={scheme.imagePath}
             alt="Dental implant with ceramic crown"
             width={600}
             height={600}
             className="h-full w-full"
+          />
+          <Image
+            src="/images/footer-quality.png"
+            alt="Dental implant with ceramic crown"
+            width={600}
+            height={600}
+            className="h-full w-full"
+            style={{height: '16%', position: 'relative', right: '1px', top: '4px'}}
           />
         </div>
       </div>

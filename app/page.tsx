@@ -92,11 +92,9 @@ export default function Page() {
                       : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                   }`}
                 >
-                  Classic CAD/CAM
+                  Classic
                 </button>
               </div>
-
-              {cardDesign === 'Basic' && (
                 <>
                   <p className="text-white text-sm font-medium mb-3 mt-5 text-center">Color Scheme</p>
                   <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -115,14 +113,13 @@ export default function Page() {
                     ))}
                   </div>
                 </>
-              )}
             </div>
 
             <div className="flex justify-center">
               {cardDesign === 'Basic' ? (
                 <CertificateCard data={data} colorScheme={colorScheme} />
               ) : (
-                <ClassicCadCamCard data={data} />
+                <ClassicCadCamCard data={data} colorScheme={colorScheme} />
               )}
             </div>
 
@@ -180,7 +177,7 @@ export default function Page() {
           {cardDesign === 'Basic' ? (
             <CertificateCard data={data} colorScheme={colorScheme} />
           ) : (
-            <ClassicCadCamCard data={data} />
+            <ClassicCadCamCard data={data} colorScheme={colorScheme} />
           )}
         </div>
       </div>
